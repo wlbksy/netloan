@@ -46,7 +46,7 @@ def getList(url):
     loan_list=[]
 
     for i in range(0,len(raw_id)):
-        each_url =  url[:25]+"Detail.aspx?id="+str(raw_id[i][0])
+        each_url =  url[:25]+"CreateVote.aspx?id="+str(raw_id[i][0])
 
         if len(raw_present[i]):
             each_present =  eval(raw_present[i][0])
@@ -114,6 +114,8 @@ def single(least_profit):
     filtered_result = [each_loan for each_loan in filtered1_result if each_loan[1]!="天" and each_loan[5]<4]
     
     filtered_result.sort(key=itemgetter(7))#,reverse=True)
+    
+    print(time.strftime('%H:%M:%S'))
 
     for loan in filtered_result:
         print(loan)
@@ -129,7 +131,6 @@ def single(least_profit):
 if __name__== "__main__":
     while True:
         try:
-            print("\n读取中...")
             single(24.3)
             time.sleep(30)
         except Exception as err:
